@@ -52,8 +52,8 @@
         };
     }
 
-    // check if pixel is white:
-    function isEmpty(rgb) {
+    // check if pixel is a color other than white:
+    function isColor(rgb) {
         return rgb.red == 255 && rgb.green == 255 && rgb.blue == 255;
     }
 
@@ -63,7 +63,7 @@
 
         for (var y = ((top) ? 0 : image.height - 1); ((top) ? (y < image.height) : (y > -1)); y += offset) {
             for (var x = 0; x < image.width; x++) {
-                if (!isEmpty(getRGB(x, y))) {
+                if (!isColor(getRGB(x, y))) {
                     return y;
                 }
             }
@@ -78,7 +78,7 @@
 
         for (var x = ((left) ? 0 : image.width - 1); ((left) ? (x < image.width) : (x > -1)); x += offset) {
             for (var y = 0; y < image.height; y++) {
-                if (!isEmpty(getRGB(x, y))) {
+                if (!isColor(getRGB(x, y))) {
                     return x;
                 }
             }
